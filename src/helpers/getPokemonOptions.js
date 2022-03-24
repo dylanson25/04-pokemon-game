@@ -25,9 +25,9 @@ const getPokemonsNames = async ([a, b, c, d] = []) => {
 
   return [
     { name: p1.data.name, id: p1.data.id },
-    { name: p2.data.name, id: p1.data.id },
-    { name: p3.data.name, id: p1.data.id },
-    { name: p4.data.name, id: p1.data.id }
+    { name: p2.data.name, id: p2.data.id },
+    { name: p3.data.name, id: p3.data.id },
+    { name: p4.data.name, id: p4.data.id }
   ];
 };
 
