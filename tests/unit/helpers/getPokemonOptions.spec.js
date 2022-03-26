@@ -1,4 +1,4 @@
-import {getPokemons} from '@/helpers/getPokemonOptions';
+import getPokemonsOptions, {getPokemons, getPokemonsNames} from '@/helpers/getPokemonOptions';
 
 
 describe('getPokemonOptions helpers', ()  =>{
@@ -12,11 +12,39 @@ describe('getPokemonOptions helpers', ()  =>{
         expect(pokemons[649]).toBe(650)
     })
 
-    test('Debe retornar un arreglo de 4 elementos con nombres de pokemon', ()=>{
+    test('Debe retornar un arreglo de 4 elementos con nombres de pokemon', async()=>{
+
+        const pokemons = await getPokemonsNames([1, 2, 3, 4]);
+        expect(pokemons).toStrictEqual([
+            { name: 'bulbasaur', id: 1 },
+            { name: 'ivysaur', id: 2 },
+            { name: 'venusaur', id: 3 },
+            { name: 'charmander', id: 4 }
+          ])
 
     })
 
-    test('getPokemonOptions debe retornar un arreglo mezclado', ()=>{
+    test('getPokemonOptions debe retornar un arreglo mezclado', async()=>{
         
+        const pokemons = await getPokemonsOptions()
+        expect( pokemons.length).toBe(4);
+        expect( pokemons ).toEqual([
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number)
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number)
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number)
+            },
+            { 
+                name: expect.any(String), 
+                id: expect.any(Number)
+            }
+        ])
     })
 })
